@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>روز دختر مبارک شێواز جان 🌸</title>
+<meta name="description" content="هدیه‌ای ویژه برای شێواز جان، روز دختر مبارک" />
+<meta name="theme-color" content="#1a0616" />
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ═══════════ قلب‌های پس‌زمینه ═══════════ -->
+<canvas id="bgCanvas" aria-hidden="true"></canvas>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- ═══════════ منوی بالا ═══════════ -->
+<nav class="topbar" aria-label="منوی اصلی">
+  <span class="brand">شێواز 🌸</span>
+  <div class="navlinks">
+    <a href="#letter">نامه</a>
+    <a href="#reasons">دلایل</a>
+    <a href="#gallery">خاطرات</a>
+    <a href="#game">بازی</a>
+    <a href="#draw">نقاشی</a>
+    <a href="#finale">پایان</a>
+  </div>
+</nav>
+
+<!-- ═══════════ ۱) قهرمان / شروع ═══════════ -->
+<header class="hero" id="home">
+  <div class="hero-inner">
+    <p class="eyebrow">۱۹ مهر • روز دختر</p>
+    <p class="today-chip" id="todayChip">امروز روز دختره! 🌸</p>
+
+    <h1 class="hero-title">
+      <span class="line">روز دختر</span>
+      <span class="line shiny">مبارک باشه</span>
+    </h1>
+
+    <div class="name-wrap">
+      <span class="glow-heart" aria-hidden="true">♥</span>
+      <h2 class="name" data-name>شێواز</h2>
+      <span class="glow-heart" aria-hidden="true">♥</span>
+    </div>
+    <p class="name-latin">shewaz</p>
+
+    <p class="hero-sub">این یه صفحه‌ی کوچیکه که فقط برای تو ساخته شده…<br />با حوصله بازش کن، یه چیزایی توش گوشی‌شده 🎁</p>
+
+    <div class="hero-actions">
+      <button class="btn btn-primary" id="openLetterBtn">نامه رو بخون 💌</button>
+      <button class="btn btn-ghost" id="musicBtn" aria-pressed="false">🎵 موزیک روشن کن</button>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true"><span></span>برو پایین</div>
+  </div>
+</header>
+
+<!-- ═══════════ ۲) نامه عشق ═══════════ -->
+<section class="section" id="letter">
+  <div class="card letter-card">
+    <div class="seal" aria-hidden="true">💌</div>
+    <p class="kicker">یه نامه، از ته دل</p>
+
+    <div class="letter-body">
+      <!-- متن نامه در جاوااسکریپت نوشته می‌شود -->
+      <p id="typedText" class="typed" aria-live="polite"></p>
+      <span class="caret" id="caret" aria-hidden="true"></span>
+    </div>
+
+    <div class="signature">
+      <span class="sig-text">بە خۆشەویستی، من</span>
+      <span class="sig-dash" aria-hidden="true"></span>
+    </div>
+
+    <button class="btn btn-mini" id="replayLetter">دوباره بخون 🔁</button>
+  </div>
+</section>
+
+<!-- ═══════════ ۳) دلایل ═══════════ -->
+<section class="section" id="reasons">
+  <h2 class="section-title">چرا شێواز؟ <span class="title-heart">♥</span></h2>
+  <p class="section-sub">هر کارت رو بردار و برگردون… توش یه دلیل هست</p>
+
+  <div class="reasons-grid" id="reasonsGrid"><!-- کارت‌ها با JS ساخته می‌شوند --></div>
+</section>
+
+<!-- ═══════════ ۴) گالری خاطرات ═══════════ -->
+<section class="section" id="gallery">
+  <h2 class="section-title">قاب خاطرات ما</h2>
+  <p class="section-sub">عکس‌هات رو از گوشیت انتخاب کن (فقط روی همین دستگاه باز می‌شه، جایی آپلود نمی‌شه)</p>
+
+  <div class="gallery-grid" id="galleryGrid"></div>
+
+  <div class="gallery-tools">
+    <label class="btn btn-primary btn-file">
+      📷 عکس اضافه کن
+      <input type="file" id="photoInput" accept="image/*" multiple hidden />
+    </label>
+    <button class="btn btn-ghost" id="clearPhotos">پاک کردن عکس‌ها</button>
+  </div>
+</section>
+
+<!-- ═══════════ ۵) نوار عشق + بازی ═══════════ -->
+<section class="section" id="game">
+  <h2 class="section-title">بازیِ قلب‌ها</h2>
+  <p class="section-sub">قبل از بازی، اول بیا بهمون عشق ثابت کنی</p>
+
+  <!-- نوار عشق -->
+  <div class="card love-meter-card">
+    <p class="kicker">نوار عشق</p>
+    <p class="meter-hint">دکمه‌ی قلب رو نگه دار… هرچقدر بیشتر، عشق بیشتر 💗</p>
+    <div class="meter-wrap">
+      <button class="hold-heart" id="holdHeart" aria-label="نگه‌داشتن قلب">♥</button>
+      <div class="meter-bar"><div class="meter-fill" id="meterFill"></div></div>
+      <span class="meter-val" id="meterVal">۰٪</span>
+    </div>
+    <p class="meter-message" id="meterMessage"></p>
+  </div>
+
+  <!-- بازی -->
+  <div class="game-wrap">
+    <div class="game-hud">
+      <span class="hud-item">امتیاز: <b id="score">۰</b></span>
+      <span class="hud-item">جان: <b id="lives">♥♥♥</b></span>
+      <span class="hud-item">هدف: <b id="target">۲۰</b></span>
+    </div>
+
+    <canvas id="gameCanvas" aria-label="بازی گرفتن قلب‌ها"></canvas>
+
+    <div class="game-overlay" id="gameOverlay">
+      <div class="overlay-box" id="overlayBox">
+        <h3 id="overlayTitle">قلب‌ها رو بگیر!</h3>
+        <p id="overlayText">با ماوس یا انگشت، سبدت رو حرکت بده و قلب‌ها رو بگیر.<br />قلب طلایی ۳ امتیاز، قلب صورتی ۱ امتیاز.</p>
+        <button class="btn btn-primary" id="startGame">بزن بریم! ❤️</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- پاداش -->
+  <div class="card reward-card hidden" id="rewardCard">
+    <div class="reward-burst" aria-hidden="true">💝</div>
+    <h3>برنده شدی! آفرین به تو 😍</h3>
+    <p class="reward-text">واقعاً به خاطر همین بازی ساختمش که یه بهونه داشته باشم بهت بگم:</p>
+    <p class="reward-big">دوستت دارم شێواز جان، بیشتر از همه‌چیزِ این دنیا 💗</p>
+  </div>
+</section>
+
+<!-- ═══════════ ۶) نقاشی قلب ═══════════ -->
+<section class="section" id="draw">
+  <h2 class="section-title">قلبِ ما رو بساز</h2>
+  <p class="section-sub">با انگشت یا ماوس روی قلب بکش — بعد یه عکس ازش بگیر 💞</p>
+
+  <div class="card draw-card">
+    <div class="palette" id="palette">
+      <button class="swatch" data-color="#ff2e74" style="--c:#ff2e74" aria-label="قرمز"></button>
+      <button class="swatch" data-color="#ff6fa5" style="--c:#ff6fa5" aria-label="صورتی"></button>
+      <button class="swatch" data-color="#ffb3c9" style="--c:#ffb3c9" aria-label="صورتی روشن"></button>
+      <button class="swatch" data-color="#ffd6e0" style="--c:#ffd6e0" aria-label="هلویی"></button>
+      <button class="swatch" data-color="#e879f9" style="--c:#e879f9" aria-label="بنفش"></button>
+      <button class="swatch" data-color="#f7c948" style="--c:#f7c948" aria-label="طلایی"></button>
+      <button class="swatch" data-color="#ffffff" style="--c:#ffffff" aria-label="سفید"></button>
+    </div>
+
+    <div class="draw-wrap">
+      <canvas id="drawCanvas" aria-label="بوم نقاشی قلب"></canvas>
+      <span class="draw-hint" id="drawHint">اینجا بکش… 💕</span>
+    </div>
+
+    <div class="draw-tools">
+      <button class="btn btn-ghost btn-mini" id="clearDraw">پاک کن 🧽</button>
+      <button class="btn btn-primary btn-mini" id="saveDraw">دانلود عکس 💾</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ ۷) پایان ═══════════ -->
+<footer class="section finale" id="finale">
+  <div class="finale-card">
+    <p class="kicker">و آخر یه چیز…</p>
+    <h2 class="finale-title">روز دخترِ شێواز، سال‌های دور و دراز</h2>
+
+    <div class="countdown" id="countdown" aria-live="polite">
+      <div class="cd-box"><b id="cdD">۰</b><span>روز</span></div>
+      <div class="cd-box"><b id="cdH">۰</b><span>ساعت</span></div>
+      <div class="cd-box"><b id="cdM">۰</b><span>دقیقه</span></div>
+      <div class="cd-box"><b id="cdS">۰</b><span>ثانیه</span></div>
+    </div>
+    <p class="countdown-note" id="countdownNote">تا روز دخترِ بعدی (۱۹ مهر)</p>
+
+    <button class="btn btn-primary" id="loveBtn">یه بغل از طرف من 🤗</button>
+
+    <p class="finale-date" id="jalaliDate"></p>
+    <p class="finale-sign">ساخته‌شده با ❤️ برای <b>شێواز</b> — <span dir="ltr">shewaz</span></p>
+  </div>
+</footer>
+
+<!-- نمایش بالا -->
+<button class="to-top" id="toTop" aria-label="رفتن به بالا">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
